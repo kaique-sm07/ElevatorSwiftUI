@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E56F822294BB1640063D34F /* Elevator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E56F821294BB1640063D34F /* Elevator.swift */; };
+		6E56F824294BB1860063D34F /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E56F823294BB1860063D34F /* Building.swift */; };
+		6E56F826294BB1980063D34F /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E56F825294BB1980063D34F /* Floor.swift */; };
+		6E56F828294BB1A80063D34F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E56F827294BB1A80063D34F /* Person.swift */; };
+		6E56F82A294BB1FE0063D34F /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E56F829294BB1FE0063D34F /* Direction.swift */; };
 		6E8F123D294AA6A500469E12 /* ElevatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F123C294AA6A500469E12 /* ElevatorApp.swift */; };
 		6E8F123F294AA6A500469E12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F123E294AA6A500469E12 /* ContentView.swift */; };
 		6E8F1241294AA6A800469E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E8F1240294AA6A800469E12 /* Assets.xcassets */; };
@@ -14,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E56F821294BB1640063D34F /* Elevator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elevator.swift; sourceTree = "<group>"; };
+		6E56F823294BB1860063D34F /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		6E56F825294BB1980063D34F /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
+		6E56F827294BB1A80063D34F /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		6E56F829294BB1FE0063D34F /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		6E8F1239294AA6A500469E12 /* Elevator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elevator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E8F123C294AA6A500469E12 /* ElevatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorApp.swift; sourceTree = "<group>"; };
 		6E8F123E294AA6A500469E12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +43,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E56F820294BB14F0063D34F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E56F823294BB1860063D34F /* Building.swift */,
+				6E56F821294BB1640063D34F /* Elevator.swift */,
+				6E56F825294BB1980063D34F /* Floor.swift */,
+				6E56F827294BB1A80063D34F /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6E8F1230294AA6A500469E12 = {
 			isa = PBXGroup;
 			children = (
@@ -52,10 +73,12 @@
 		6E8F123B294AA6A500469E12 /* Elevator */ = {
 			isa = PBXGroup;
 			children = (
-				6E8F123C294AA6A500469E12 /* ElevatorApp.swift */,
-				6E8F123E294AA6A500469E12 /* ContentView.swift */,
 				6E8F1240294AA6A800469E12 /* Assets.xcassets */,
+				6E8F123E294AA6A500469E12 /* ContentView.swift */,
+				6E56F829294BB1FE0063D34F /* Direction.swift */,
 				6E8F1245294AA6A800469E12 /* Elevator.entitlements */,
+				6E8F123C294AA6A500469E12 /* ElevatorApp.swift */,
+				6E56F820294BB14F0063D34F /* Model */,
 				6E8F1242294AA6A800469E12 /* Preview Content */,
 			);
 			path = Elevator;
@@ -139,8 +162,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E56F82A294BB1FE0063D34F /* Direction.swift in Sources */,
+				6E56F828294BB1A80063D34F /* Person.swift in Sources */,
 				6E8F123F294AA6A500469E12 /* ContentView.swift in Sources */,
 				6E8F123D294AA6A500469E12 /* ElevatorApp.swift in Sources */,
+				6E56F826294BB1980063D34F /* Floor.swift in Sources */,
+				6E56F822294BB1640063D34F /* Elevator.swift in Sources */,
+				6E56F824294BB1860063D34F /* Building.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
