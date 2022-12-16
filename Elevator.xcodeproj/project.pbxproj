@@ -54,6 +54,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		6E56F82C294CA5B40063D34F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6E8F1230294AA6A500469E12 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +80,7 @@
 		6E8F123B294AA6A500469E12 /* Elevator */ = {
 			isa = PBXGroup;
 			children = (
+				6E56F82C294CA5B40063D34F /* View */,
 				6E8F1240294AA6A800469E12 /* Assets.xcassets */,
 				6E8F123E294AA6A500469E12 /* ContentView.swift */,
 				6E56F829294BB1FE0063D34F /* Direction.swift */,
