@@ -7,12 +7,28 @@
 
 import Foundation
 
-protocol Person : Hashable {
-    var id: String { get set }
-    var origin: Int { get set }
-    var target: Int { get set }
-    var arrivingTick: Int { get set }
-    var elevatorEntryTick: Int { get set }
-    var exitTick: Int { get set }
+class Person : Hashable {
+    var id: String
+    var origin: Int
+    var target: Int
+    var arrivingTick: Int
+    var elevatorEntryTick: Int
+    var exitTick: Int
 
+    init(id: String, origin: Int, target: Int, arrivingTick: Int, elevatorEntryTick: Int, exitTick: Int) {
+        self.id = id
+        self.origin = origin
+        self.target = target
+        self.arrivingTick = arrivingTick
+        self.elevatorEntryTick = elevatorEntryTick
+        self.exitTick = exitTick
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.id == rhs.id
+    }
 }

@@ -7,9 +7,16 @@
 
 import Foundation
 
-protocol Floor {
-    var number: Int { get set }
-    var people: [any Person] { get set }
-    var elevatorCalled: Bool { get set }
-    var desiredDirection: Direction { get set }
+class Floor {
+    var number: Int
+    var people: [Person]
+    var elevatorCalled: Bool
+    var desiredDirection: Direction
+
+    init(number: Int, people: [Person], elevatorCalled: Bool, desiredDirection: Direction) {
+        self.number = number
+        self.people = people
+        self.elevatorCalled = elevatorCalled
+        self.desiredDirection = desiredDirection
+    }
 }

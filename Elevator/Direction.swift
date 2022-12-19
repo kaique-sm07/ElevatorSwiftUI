@@ -7,10 +7,7 @@
 
 import Foundation
 
-struct Direction: OptionSet {
-    let rawValue: Int
-
-    static let up = Direction(rawValue: 1 << 1)
-    static let down = Direction(rawValue: 1 << -1)
-    static let stopped = Direction(rawValue: 1 << 0)
+enum Direction {
+    case up
+    case down
 }

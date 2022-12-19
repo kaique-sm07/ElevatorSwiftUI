@@ -8,22 +8,24 @@
 import Foundation
 
 protocol Elevator {
-    var direction: Direction { get set }
+    var direction: Direction? { get set }
     var currentFloor: Int { get set }
-    var targetFloors: [Int: [any Person]] { get set }
+    var targetFloors: [Int: [Person]] { get set }
+    func updatePosition()
+    func load(people: [Person])
 }
 
 class SimpleElevator: Elevator {
-    var direction: Direction
+    var direction: Direction?
 
     var currentFloor: Int
 
-    var targetFloors: [Int : [any Person]]
+    var targetFloors: [Int : [Person]]
 
-    init(directon: Direction = .stopped,
+    init(direction: Direction?,
          currentFloor: Int = 0,
-         targetFloors: [Int: [any Person]] = [:]) {
-        self.direction = directon
+         targetFloors: [Int: [Person]] = [:]) {
+        self.direction = direction
         self.currentFloor = currentFloor
         self.targetFloors = targetFloors
     }
@@ -43,7 +45,7 @@ class SimpleElevator: Elevator {
         }
     }
 
-    func load(people: [any Person]) {
+    func load(people: [Person]) {
         for person in people {
             targetFloors[person.target]?.append(person)
         }
