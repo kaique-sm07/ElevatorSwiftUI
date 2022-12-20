@@ -11,9 +11,9 @@ class Floor {
     var number: Int
     var people: [Person]
     var elevatorCalled: Bool
-    var desiredDirection: Direction
+    var desiredDirection: Direction?
 
-    init(number: Int, people: [Person], elevatorCalled: Bool, desiredDirection: Direction) {
+    init(number: Int, people: [Person], elevatorCalled: Bool, desiredDirection: Direction?) {
         self.number = number
         self.people = people
         self.elevatorCalled = elevatorCalled
