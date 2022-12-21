@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct FloorView: View {
-    @State var floor: Floor?
+    @Binding var floor: Floor
 
     var elevators: [Int?] = []
     var body: some View {
         HStack {
+            Text(String(floor.number))
+                .font(.system(size: 36))
             ScrollView(.horizontal) {
                 LazyHStack {
-                    ForEach(floor?.people ?? [], id: \.id) { person in
+                    ForEach(floor.people, id: \.id) { person in
                         Text("🥷")
                             .font(.system(size: 36))
                     }
@@ -33,12 +35,5 @@ struct FloorView: View {
             }.fixedSize()
         }
 
-    }
-}
-
-struct FloorView_Previews: PreviewProvider {
-    static var previews: some View {
-        FloorView()
-            .previewLayout(.fixed(width: 300, height: 70))
     }
 }

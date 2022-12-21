@@ -19,4 +19,9 @@ class Floor {
         self.elevatorCalled = elevatorCalled
         self.desiredDirection = desiredDirection
     }
+
+    func arrivePeople(people: [Person]) {
+        self.people.append(contentsOf: people)
+        elevatorCalled = true
+    }
 }

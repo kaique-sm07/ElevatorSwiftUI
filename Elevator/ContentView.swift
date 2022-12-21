@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isRunning = false
-    var building = Building(numberOfFloors: 10, numberOfElevators: 1)
+    @ObservedObject var building = Building(numberOfFloors: 10, numberOfElevators: 1)
     var body: some View {
         VStack {
             Button(isRunning ? "Stop" : "Start") {
@@ -20,18 +20,12 @@ struct ContentView: View {
                 }
                 isRunning = !isRunning
             }
-            List(building.floors, id: \.number) { floor in
-                FloorView(floor: floor, elevators: building.elevators.map {
-                    $0.currentFloor == floor.number ? $0.targetFloors.keys.count : nil
-                }.compactMap { $0 })
+
+            List(Array(building.floors.enumerated()), id: \.offset) { offset, floor in
+                FloorView(floor: $building.floors[offset], elevators: building.elevators.map {
+                    $0.currentFloor == floor.number ? $0.totalPassengers() : nil
+                }.filter { $0 != nil })
             }
         }
-
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

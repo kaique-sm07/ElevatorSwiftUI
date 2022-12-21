@@ -7,9 +7,9 @@
 
 import Foundation
 
-class Building {
-    var floors: [Floor] = []
-    var elevators: [Elevator] = []
+class Building: ObservableObject {
+    @Published var floors: [Floor] = []
+    @Published var elevators: [Elevator] = []
     private var mainTimer: Timer?
 
     init(numberOfFloors: Int, numberOfElevators: Int) {
@@ -18,17 +18,39 @@ class Building {
     }
 
     func start() {
-        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            self.mainTimer = timer
+        mainTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             self.tick()
         }
     }
 
     private func tick() {
-        for elevator in elevators {
-            elevator.updatePosition()
-            elevator.load(people: floors[elevator.currentFloor].people)
+        var calledFloors: [Int] = []
+        randomLoadPerson()
+        for floor in floors {
+            if floor.elevatorCalled {
+                calledFloors.append(floor.number)
+            }
         }
+        for elevator in elevators {
+            elevator.updatePosition(calledFloor: calledFloors)
+            elevator.load(people: floors[elevator.currentFloor].people)
+            floors[elevator.currentFloor].people = []
+            floors[elevator.currentFloor].elevatorCalled = false
+        }
+        floors.append((Floor(number: 10, people: [], elevatorCalled: false, desiredDirection: nil)))
+        floors.remove(at: 10)
+    }
+
+    private func randomLoadPerson() {
+        var people : [Person] = []
+        let floor = Int.random(in: 0..<10)
+        let person = Int.random(in: 0...2)
+        for _ in 0..<person {
+            let person = Person(id: UUID().uuidString, origin: floor, target: Int.random(in: 0...10), arrivingTick: 0, elevatorEntryTick: 0, exitTick: 0)
+            people.append(person)
+
+        }
+        floors[floor].arrivePeople(people: people)
     }
 
     func stop() {
